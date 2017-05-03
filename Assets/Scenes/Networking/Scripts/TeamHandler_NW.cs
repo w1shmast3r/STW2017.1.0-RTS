@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Networking.Types;
 
 public class TeamHandler_NW : NetworkBehaviour
 {
@@ -27,50 +25,4 @@ public class TeamHandler_NW : NetworkBehaviour
     {
         teamHandler = this;
     }
-
-
-    public void AddUnit(Base_NW.Team team, Transform unit)
-    {
-        switch (team)
-        {
-            case Base_NW.Team.Neutral:
-                unitNeutral.Add(unit);
-                break;
-
-            case Base_NW.Team.Player1:
-                //unitPlayer1.Add(unit);
-                break;
-
-            case Base_NW.Team.Player2:
-                //unitPlayer2.Add(unit);
-                break;
-
-            default:
-                break;
-
-        }
-    }
-
-    public void AddStructure(Base_NW.Team team, Transform structure)
-    {
-        switch (team)
-        {
-            case Base_NW.Team.Neutral:
-                //structurePlayer1.Add(structure);
-                break;
-
-            case Base_NW.Team.Player1:
-                //structurePlayer2.Add(structure);
-                break;
-
-            case Base_NW.Team.Player2:
-                //structureNeutral.Add(structure);
-                break;
-
-            default:
-                break;
-
-        }
-    }
-
 }

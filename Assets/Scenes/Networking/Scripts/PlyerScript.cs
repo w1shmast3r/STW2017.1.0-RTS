@@ -62,7 +62,7 @@ public class PlyerScript : NetworkBehaviour
     [Command]
     void CmdSpawn(int i, Vector3 position, Base_NW.Team playerTeam)
     {
-        var go = (GameObject)Instantiate(tanks[i], position, Quaternion.identity);
+        var go = Instantiate(tanks[i], position, Quaternion.identity);
         var unit = go.GetComponent<Unit_NW>();
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
         if (playerTeam == Base_NW.Team.Player1)
