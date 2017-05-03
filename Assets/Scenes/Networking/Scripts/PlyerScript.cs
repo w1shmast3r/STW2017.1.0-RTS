@@ -75,10 +75,4 @@ public class PlyerScript : NetworkBehaviour
     {
         CmdSpawn(i, LevelController.spawnPoint, myTeam);
     }
-
-    void Update()
-    {
-        if (!isLocalPlayer)
-            return;        
-    }
 }

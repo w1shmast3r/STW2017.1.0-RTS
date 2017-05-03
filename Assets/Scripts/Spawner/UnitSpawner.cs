@@ -21,6 +21,8 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
             LevelController.spawnPoint = spawnPosition.position;
             LevelController.meetPoint = meetPoint.position;
         }
+
+        
     }
     
     public void OnPointerClick(PointerEventData eventData)

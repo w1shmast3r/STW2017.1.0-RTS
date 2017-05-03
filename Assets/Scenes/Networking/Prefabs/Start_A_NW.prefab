@@ -59,8 +59,7 @@ GameObject:
   - component: {fileID: 114225340642734810}
   - component: {fileID: 114843397627239264}
   - component: {fileID: 114287995458752824}
-  - component: {fileID: 114014011085297062}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Start_A_NW
   m_TagString: Neutral
   m_Icon: {fileID: 0}
@@ -323,34 +322,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.535762, y: 6.1351686, z: 0.6485357}
   m_Center: {x: 0, y: 3.0675848, z: -0.00000031292439}
---- !u!114 &114014011085297062
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1729245037107918}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c335a4a241a424a82661ae4df7b551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 1
-  className: Base
-  description: Purpose of this unit/structure.
-  maxHealth: 1
-  armor: 0
-  explosionType: 1
-  weapon: {fileID: 0}
-  turret: {fileID: 0}
-  muzzle: []
-  target: {fileID: 0}
 --- !u!114 &114225340642734810
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729245037107918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06b0e1a79fdeaa74b957a650173ca6ab, type: 3}
   m_Name: 

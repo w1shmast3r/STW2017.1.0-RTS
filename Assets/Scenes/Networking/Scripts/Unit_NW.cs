@@ -51,6 +51,7 @@ public class Unit_NW : Base_NW
                 //check if potential target belongs to different team
                 if (targets[i].transform.root != transform.root && !targets[i].CompareTag(gameObject.tag))
                 {
+                    Debug.Log(targets[i].tag + " " + gameObject.tag);
                     float newDistance = (targets[i].transform.position - transform.position).sqrMagnitude;
                     if (newDistance < distance)
                     {
