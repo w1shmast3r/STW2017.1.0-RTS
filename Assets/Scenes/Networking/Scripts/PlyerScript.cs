@@ -3,19 +3,16 @@ using UnityEngine.Networking;
 
 public class PlyerScript : NetworkBehaviour
 {
-
     public GameObject[] tanks;
     public Base_NW.Team myTeam;
     public TeamHandler_NW teamHandler;
     public GameObject myBase;
     private Vector3 spawnPosition;
 
-    private Camera m_camera;
     void Start()
     {
         teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
 
-        m_camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         if (isServer)
             if(isLocalPlayer)
                 myTeam = Base_NW.Team.Player1;
@@ -36,7 +33,7 @@ public class PlyerScript : NetworkBehaviour
             var baseTransform = GameObject.FindGameObjectWithTag("SpawnPosition" + strTeam).transform;
             var basePosition = baseTransform.position;
             spawnPosition = basePosition + Vector3.forward*3;
-            //GameObject.Find("Main Camera").transform.position = BasePosition;
+
             Camera.main.GetComponent<ISRTSCamera>().Follow(baseTransform);
 
             LevelController.buildingMenu = GameObject.Find("BaseOptions");
@@ -82,15 +79,6 @@ public class PlyerScript : NetworkBehaviour
     void Update()
     {
         if (!isLocalPlayer)
-            return;
-
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    RaycastHit hit;
-        //    var raycast = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000);
-        //    if (raycast)
-        //        //var pos = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
-        //    CmdSpawn(2, hit.point, myTeam);
-        //}
+            return;        
     }
 }

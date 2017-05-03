@@ -1,16 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Networking;
 
 public class Unit_NW : Base_NW
-{
-
-    ///<summary>
-    /// Unit class, including movement and weapons.
-    ///</summary>
-
+{    
     [Header("Weapons")]
     public WeaponObject weapon;
     public Transform turret;
@@ -22,47 +14,12 @@ public class Unit_NW : Base_NW
         set { target = value; }
     }
 
-    //private LayerMask attackMask;
-
     // Use this for initialization
     public void Start()
     {
         base.Start ();
         StartCoroutine(FindTarget());
-        //Initialize();
     }
-
-    //public void Initialize()
-    //{
-    //    if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains(GetComponent<NetworkIdentity>().netId.Value))
-    //        || (TeamHandler_NW.teamHandler.structurePlayer1.Contains(GetComponent<NetworkIdentity>().netId.Value)))
-    //        team = Team.Player1;
-    //    else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains(GetComponent<NetworkIdentity>().netId.Value))
-    //        || (TeamHandler_NW.teamHandler.structurePlayer2.Contains(GetComponent<NetworkIdentity>().netId.Value)))
-    //        team = Team.Player2;
-
-    //    attackMask = 1 << LayerMask.NameToLayer("Active");
-
-    //    if (team == LevelController.myTeam)
-    //    {
-    //        if (GetComponent<NavMeshObstacle>() != null)
-    //        {
-    //            GetComponent<NavMeshObstacle>().enabled = false;
-    //            Agent = GetComponent<NavMeshAgent>();
-    //            Agent.enabled = true;
-    //            LevelController.RegisterUnit(gameObject);
-    //            Agent.SetDestination(transform.position + Vector3.forward*10);
-    //        }
-    //        else
-    //        {
-    //            LevelController.HideMenu();
-    //        }
-    //    }
-    //    //if (!GetComponent<UnitSpawner>())
-
-    //        StartCoroutine(FindTarget());
-    //    InitBase();
-    //}
 
     void Update()
     {
@@ -194,12 +151,9 @@ public class Unit_NW : Base_NW
                 
             }
             yield return new WaitForSeconds(1 / weapon.rateOfFire);
-
-//            yield return null;
         }
 
         yield return new WaitForEndOfFrame(); //wait for a frame to avoid 
         StartCoroutine(FindTarget());
     }
-
 }

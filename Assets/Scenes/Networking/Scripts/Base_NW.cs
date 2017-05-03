@@ -1,16 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Networking;
 
-public class Base_NW : NetworkBehaviour {
-    ///<summary>
-    ///Base class for all units and structures.
-    ///</summary>
-    ///
+public class Base_NW : NetworkBehaviour 
+{
     
-    public enum Team {Player1, Player2, Neutral };
+    public enum Team { Player1, Player2, Neutral };
 
     [Header("General")]
     public Team team = Team.Player2;
@@ -43,31 +38,28 @@ public class Base_NW : NetworkBehaviour {
         InitBase();
     }
 
-public void Initialize ()
-{
-	if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value))
-		|| (TeamHandler_NW.teamHandler.structurePlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
-		team = Team.Player1;
-	else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value))
-		|| (TeamHandler_NW.teamHandler.structurePlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
-		team = Team.Player2;
+    public void Initialize ()
+    {
+    	if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value))
+    		|| (TeamHandler_NW.teamHandler.structurePlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
+    		team = Team.Player1;
+    	else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value))
+    		|| (TeamHandler_NW.teamHandler.structurePlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
+    		team = Team.Player2;
 
-	attackMask = 1 << LayerMask.NameToLayer ("Active");
+    	attackMask = 1 << LayerMask.NameToLayer ("Active");
 
-	if (team == LevelController.myTeam) {
-		if (GetComponent<NavMeshObstacle> () != null) {
-			GetComponent<NavMeshObstacle> ().enabled = false;
-			Agent = GetComponent<NavMeshAgent> ();
-			Agent.enabled = true;
-			LevelController.RegisterUnit (gameObject);
-			Agent.SetDestination (transform.position + Vector3.forward * 10);
-		} else {
-			LevelController.HideMenu ();
-		}
-	}
-	//if (!GetComponent<UnitSpawner>())
-
-	//InitBase ();
+    	if (team == LevelController.myTeam) {
+    		if (GetComponent<NavMeshObstacle> () != null) {
+    			GetComponent<NavMeshObstacle> ().enabled = false;
+    			Agent = GetComponent<NavMeshAgent> ();
+    			Agent.enabled = true;
+    			LevelController.RegisterUnit (gameObject);
+    			Agent.SetDestination (transform.position + Vector3.forward * 10);
+    		} else {
+    			LevelController.HideMenu ();
+    		}
+    	}	
     }
 
 

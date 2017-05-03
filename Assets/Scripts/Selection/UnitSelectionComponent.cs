@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.AI;
 
 public class UnitSelectionComponent : MonoBehaviour
 {
