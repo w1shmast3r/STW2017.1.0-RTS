@@ -22,46 +22,47 @@ public class Unit_NW : Base_NW
         set { target = value; }
     }
 
-    private LayerMask attackMask;
+    //private LayerMask attackMask;
 
     // Use this for initialization
-    public override void Start()
+    public void Start()
     {
-        Initialize();
-        
+        base.Start ();
+        StartCoroutine(FindTarget());
+        //Initialize();
     }
 
-    public void Initialize()
-    {
-        if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains(GetComponent<NetworkIdentity>().netId.Value))
-            || (TeamHandler_NW.teamHandler.structurePlayer1.Contains(GetComponent<NetworkIdentity>().netId.Value)))
-            team = Team.Player1;
-        else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains(GetComponent<NetworkIdentity>().netId.Value))
-            || (TeamHandler_NW.teamHandler.structurePlayer2.Contains(GetComponent<NetworkIdentity>().netId.Value)))
-            team = Team.Player2;
+    //public void Initialize()
+    //{
+    //    if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains(GetComponent<NetworkIdentity>().netId.Value))
+    //        || (TeamHandler_NW.teamHandler.structurePlayer1.Contains(GetComponent<NetworkIdentity>().netId.Value)))
+    //        team = Team.Player1;
+    //    else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains(GetComponent<NetworkIdentity>().netId.Value))
+    //        || (TeamHandler_NW.teamHandler.structurePlayer2.Contains(GetComponent<NetworkIdentity>().netId.Value)))
+    //        team = Team.Player2;
 
-        attackMask = 1 << LayerMask.NameToLayer("Active");
+    //    attackMask = 1 << LayerMask.NameToLayer("Active");
 
-        if (team == LevelController.myTeam)
-        {
-            if (GetComponent<NavMeshObstacle>() != null)
-            {
-                GetComponent<NavMeshObstacle>().enabled = false;
-                Agent = GetComponent<NavMeshAgent>();
-                Agent.enabled = true;
-                LevelController.RegisterUnit(gameObject);
-                Agent.SetDestination(transform.position + Vector3.forward*10);
-            }
-            else
-            {
-                LevelController.HideMenu();
-            }
-        }
-        //if (!GetComponent<UnitSpawner>())
+    //    if (team == LevelController.myTeam)
+    //    {
+    //        if (GetComponent<NavMeshObstacle>() != null)
+    //        {
+    //            GetComponent<NavMeshObstacle>().enabled = false;
+    //            Agent = GetComponent<NavMeshAgent>();
+    //            Agent.enabled = true;
+    //            LevelController.RegisterUnit(gameObject);
+    //            Agent.SetDestination(transform.position + Vector3.forward*10);
+    //        }
+    //        else
+    //        {
+    //            LevelController.HideMenu();
+    //        }
+    //    }
+    //    //if (!GetComponent<UnitSpawner>())
 
-            StartCoroutine(FindTarget());
-        InitBase();
-    }
+    //        StartCoroutine(FindTarget());
+    //    InitBase();
+    //}
 
     void Update()
     {
