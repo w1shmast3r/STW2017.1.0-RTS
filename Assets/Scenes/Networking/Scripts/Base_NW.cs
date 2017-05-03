@@ -40,12 +40,15 @@ public class Base_NW : NetworkBehaviour
 
     public void Initialize ()
     {
-    	if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value))
-    		|| (TeamHandler_NW.teamHandler.structurePlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
-    		team = Team.Player1;
-    	else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value))
-    		|| (TeamHandler_NW.teamHandler.structurePlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
-    		team = Team.Player2;
+        //if ((TeamHandler_NW.teamHandler.unitPlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value))
+        //	|| (TeamHandler_NW.teamHandler.structurePlayer1.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
+        //	team = Team.Player1;
+        //else if ((TeamHandler_NW.teamHandler.unitPlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value))
+        //	|| (TeamHandler_NW.teamHandler.structurePlayer2.Contains (GetComponent<NetworkIdentity> ().netId.Value)))
+        //	team = Team.Player2;
+
+        var netID = GetComponent<NetworkIdentity>().netId.Value;
+        team = TeamHandler_NW.teamHandler.GetMyTeam(netID);
 
     	attackMask = 1 << LayerMask.NameToLayer ("Active");
 
@@ -55,8 +58,10 @@ public class Base_NW : NetworkBehaviour
     			Agent = GetComponent<NavMeshAgent> ();
     			Agent.enabled = true;
     			LevelController.RegisterUnit (gameObject);
-    			Agent.SetDestination (transform.position + Vector3.forward * 10);
-    		} else {
+    			//Agent.SetDestination (LevelController.meetPoint);
+                Agent.SetDestination(LevelController.meetPoint);
+            }
+            else {
     			LevelController.HideMenu ();
     		}
     	}	

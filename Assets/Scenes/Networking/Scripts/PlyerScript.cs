@@ -73,7 +73,7 @@ public class PlyerScript : NetworkBehaviour
 
     public void SpownTank(int i)
     {
-        CmdSpawn(i, spawnPosition, myTeam);
+        CmdSpawn(i, LevelController.spawnPoint, myTeam);
     }
 
     void Update()

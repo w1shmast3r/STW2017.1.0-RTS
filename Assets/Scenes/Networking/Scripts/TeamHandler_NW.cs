@@ -25,4 +25,13 @@ public class TeamHandler_NW : NetworkBehaviour
     {
         teamHandler = this;
     }
+
+    public Base_NW.Team GetMyTeam(uint id)
+    {
+        if (unitPlayer1.Contains(id) || structurePlayer1.Contains(id))
+            return Base_NW.Team.Player1;
+        else if (unitPlayer2.Contains(id) || structurePlayer2.Contains(id))
+            return Base_NW.Team.Player2;
+        else return Base_NW.Team.Neutral;
+    }
 }

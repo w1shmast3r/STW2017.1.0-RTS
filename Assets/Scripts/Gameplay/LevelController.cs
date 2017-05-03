@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 public class LevelController : MonoBehaviour {
 
-    /// <summary>
-    /// This class for general logic within level
-    /// </summary>
-	
     public static List<GameObject> playerUnits;
 
     public static Base_NW.Team myTeam;
@@ -14,6 +10,9 @@ public class LevelController : MonoBehaviour {
     public static PlyerScript player;
 
     public static GameObject buildingMenu;
+
+    public static Vector3 spawnPoint;
+    public static Vector3 meetPoint;
 
     public static void HideMenu()
     {

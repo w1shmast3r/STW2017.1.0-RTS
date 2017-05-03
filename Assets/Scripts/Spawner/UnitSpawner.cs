@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.AI;
 using UnityEngine.Networking;
 
-public class UnitSpawner : MonoBehaviour, IPointerClickHandler
+public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
 {
     public Transform spawnPosition;
     public Transform meetPoint;
@@ -13,6 +13,16 @@ public class UnitSpawner : MonoBehaviour, IPointerClickHandler
    // public NavMeshAgent agent;
 
 
+    public void Start()
+    {
+        var netID = GetComponent<NetworkIdentity>().netId.Value;
+        if (TeamHandler_NW.teamHandler.GetMyTeam(netID) == LevelController.myTeam)
+        {
+            LevelController.spawnPoint = spawnPosition.position;
+            LevelController.meetPoint = meetPoint.position;
+        }
+    }
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         ShowBuildingMenu();
