@@ -81,7 +81,7 @@ public class Unit_NW : Base_NW
     //find target in radius
     IEnumerator FindTarget()
     {
-        while (target == null)
+        while (target == null && className != "Base")
         {
             Collider[] targets = Physics.OverlapSphere(transform.position, weapon.range, attackMask);
 

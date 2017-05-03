@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  className: Unnamed
+  className: Base
   description: Purpose of this unit/structure.
   maxHealth: 1
   armor: 0
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  className: Unnamed
+  className: Base
   description: Purpose of this unit/structure.
   maxHealth: 1
   armor: 0

@@ -32,12 +32,16 @@ public class PlyerScript : NetworkBehaviour
             LevelController.myTeam = myTeam;
             LevelController.player = this;
             var strTeam = myTeam == Base_NW.Team.Player1 ? "Player1" : "Player2";
-            var BasePosition = GameObject.FindGameObjectWithTag("SpawnPosition" + strTeam).transform.position;
-            spawnPosition = BasePosition + Vector3.forward*3;
-            GameObject.Find("Main Camera").transform.position = BasePosition;
+
+            var baseTransform = GameObject.FindGameObjectWithTag("SpawnPosition" + strTeam).transform;
+            var basePosition = baseTransform.position;
+            spawnPosition = basePosition + Vector3.forward*3;
+            //GameObject.Find("Main Camera").transform.position = BasePosition;
+            Camera.main.GetComponent<ISRTSCamera>().Follow(baseTransform);
+
             LevelController.buildingMenu = GameObject.Find("BaseOptions");
             LevelController.buildingMenu.SetActive(false);
-            CmdSpawnBase(BasePosition, myTeam);
+            CmdSpawnBase(basePosition, myTeam);
         }
     }
 
