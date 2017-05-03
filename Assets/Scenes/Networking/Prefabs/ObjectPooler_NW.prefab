@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1175163902311594}
+  m_IsPrefabParent: 1
+--- !u!1 &1175163902311594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4622256904314800}
+  - component: {fileID: 114953741464558272}
+  - component: {fileID: 114003743970829000}
+  - component: {fileID: 114850368569720840}
+  m_Layer: 0
+  m_Name: ObjectPooler_NW
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4622256904314800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175163902311594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114003743970829000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175163902311594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5874565ee14257343b56febcf8875a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorPlayer1: {r: 0.00746108, g: 0.51455694, b: 1, a: 0}
+  colorPlayer2: {r: 0.9338235, g: 0.39824826, b: 0.39824826, a: 0}
+  colorNeutral: {r: 0.74264705, g: 0.72803515, b: 0.21296495, a: 0}
+  unitNeutral: []
+  structurePlayer1: []
+  structurePlayer2: []
+  structureNeutral: []
+--- !u!114 &114850368569720840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175163902311594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 146
+    i1: 42
+    i2: 184
+    i3: 242
+    i4: 146
+    i5: 162
+    i6: 214
+    i7: 116
+    i8: 186
+    i9: 0
+    i10: 108
+    i11: 238
+    i12: 96
+    i13: 6
+    i14: 237
+    i15: 86
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114953741464558272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175163902311594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57dd528fa4ff39e45a1afae87b5b215f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - effectName: MachineGun Hit
+    effectType: 5
+    prefab: {fileID: 1188632265594232, guid: 6252ca9ab4622c94db19799daeae594c, type: 2}
+    count: 20
+    effectPool: []
+  - effectName: MachineGun Muzzle Flash
+    effectType: 4
+    prefab: {fileID: 1245170783906714, guid: a2600be1b6ebc394d8370a242fc63fd2, type: 2}
+    count: 20
+    effectPool: []
+  - effectName: Explosion - Small
+    effectType: 1
+    prefab: {fileID: 1715356863646732, guid: 554fbc28ff20acf4baa69e5edadafed1, type: 2}
+    count: 20
+    effectPool: []
+  - effectName: Cannon Muzzle Flash
+    effectType: 6
+    prefab: {fileID: 1244188289559982, guid: 4d1d98f6dc5e74744a28066459ece383, type: 2}
+    count: 20
+    effectPool: []
+  - effectName: Cannon Hit
+    effectType: 7
+    prefab: {fileID: 1406142350372132, guid: 8118a80f219310c4f959d1ed911691e1, type: 2}
+    count: 20
+    effectPool: []
+  - effectName: Rocket Projectile
+    effectType: 8
+    prefab: {fileID: 1992333020643424, guid: dd0c64b9a1e5be6468365cb51441cbf9, type: 2}
+    count: 20
+    effectPool: []
+  - effectName: Click Move Effect
+    effectType: 9
+    prefab: {fileID: 1415266468568700, guid: 9a9a2c23e00ad584485fef18f7894997, type: 2}
+    count: 20
+    effectPool: []
