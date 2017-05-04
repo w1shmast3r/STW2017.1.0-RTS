@@ -403,7 +403,7 @@ MonoBehaviour:
   team: 0
   className: Base
   description: Purpose of this unit/structure.
-  maxHealth: 1
+  maxHealth: 100
   armor: 0
   explosionType: 1
 --- !u!195 &195531527504689756

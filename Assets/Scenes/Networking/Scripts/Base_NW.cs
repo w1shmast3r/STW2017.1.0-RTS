@@ -15,6 +15,7 @@ public class Base_NW : NetworkBehaviour
     [Header("Attributes")]
     public float maxHealth = 1f; //start/max health
     public float armor = 0f; //armor, used for damage reduction
+    public HealthBar healthBar;
     private float curHealth; //current health
 
     [Header("VFX")]
@@ -36,6 +37,9 @@ public class Base_NW : NetworkBehaviour
     {
         Initialize ();
         InitBase();
+
+        if (healthBar != null)
+            healthBar.Init(maxHealth);
     }
 
     public void Initialize ()
@@ -99,9 +103,9 @@ public class Base_NW : NetworkBehaviour
 
         foreach (Renderer rend in visuals)
         {
-            if (!rend.CompareTag("MiniMapBlob"))
-                rend.material = mat;
-            else
+            if (rend.CompareTag("MiniMapBlob"))
+                rend.material.SetColor("_Color", minimapColor);
+            else if (!rend.CompareTag("HealthBar"))
                 rend.material.SetColor("_Color", minimapColor);
         }
     }
@@ -127,14 +131,15 @@ public class Base_NW : NetworkBehaviour
         //take damage
         curHealth -= damage;
 
-        //
+        if (healthBar != null)
+            healthBar.AdjustHealth(-damage);
+
         if (curHealth <= 0)
         {
             isDestroyed = true;
             IsDead = isDestroyed;
             Destroy();
         }
-            
 
         return isDestroyed;
     }
