@@ -11,8 +11,6 @@ public class PlyerScript : NetworkBehaviour
 
     void Start()
     {
-        teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
-
         if (isServer)
             if(isLocalPlayer)
                 myTeam = Base_NW.Team.Player1;
@@ -45,6 +43,8 @@ public class PlyerScript : NetworkBehaviour
     [Command]
     public void CmdSpawnBase(Vector3 position, Base_NW.Team playerTeam)
     {
+		teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
+
         var go = (GameObject)Instantiate(myBase, position, Quaternion.identity);
         if (playerTeam == Base_NW.Team.Player2)
             go.transform.Rotate(Vector3.up, 180);
