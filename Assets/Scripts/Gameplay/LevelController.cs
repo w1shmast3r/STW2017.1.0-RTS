@@ -14,6 +14,13 @@ public class LevelController : MonoBehaviour {
     public static Vector3 spawnPoint;
     public static Vector3 meetPoint;
 
+    [SerializeField]
+    public static Color colorPlayer1;
+    [SerializeField]
+    public static Color colorPlayer2;
+    [SerializeField]
+    public static Color colorNeutral;
+
     public static void HideMenu()
     {
         if(buildingMenu != null)

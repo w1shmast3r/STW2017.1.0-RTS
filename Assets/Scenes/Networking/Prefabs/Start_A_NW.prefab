@@ -500,7 +500,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729245037107918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06b0e1a79fdeaa74b957a650173ca6ab, type: 3}
   m_Name: 
@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  teamColor: {r: 0, g: 0, b: 0, a: 0}
   className: Base
   description: Purpose of this unit/structure.
   maxHealth: 100

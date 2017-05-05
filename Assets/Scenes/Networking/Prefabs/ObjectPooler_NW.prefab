@@ -57,8 +57,6 @@ MonoBehaviour:
   colorPlayer2: {r: 0.9338235, g: 0.39824826, b: 0.39824826, a: 0}
   colorNeutral: {r: 0.74264705, g: 0.72803515, b: 0.21296495, a: 0}
   unitNeutral: []
-  structurePlayer1: []
-  structurePlayer2: []
   structureNeutral: []
 --- !u!114 &114850368569720840
 MonoBehaviour:
@@ -135,7 +133,7 @@ MonoBehaviour:
     count: 20
     effectPool: []
   - effectName: Click Move Effect
-    effectType: 9
+    effectType: 10
     prefab: {fileID: 1415266468568700, guid: 9a9a2c23e00ad584485fef18f7894997, type: 2}
     count: 20
     effectPool: []
