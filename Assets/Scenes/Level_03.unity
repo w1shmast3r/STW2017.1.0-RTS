@@ -1138,39 +1138,34 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114927794731487526, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
+    - target: {fileID: 114325313339757374, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: levelController
       value: 
       objectReference: {fileID: 431527943}
-    - target: {fileID: 114912899088385636, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
+    - target: {fileID: 114363533485240846, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: levelController
       value: 
       objectReference: {fileID: 431527943}
-    - target: {fileID: 114769501295156162, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
+    - target: {fileID: 114150615774395288, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: levelController
       value: 
       objectReference: {fileID: 431527943}
-    - target: {fileID: 114372361519034648, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
+    - target: {fileID: 114336306356476008, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: levelController
       value: 
       objectReference: {fileID: 431527943}
-    - target: {fileID: 114133897311362240, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
+    - target: {fileID: 114811890999185436, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: levelController
       value: 
       objectReference: {fileID: 431527943}
     - target: {fileID: 1883385305365766, guid: 128fdce0f9b9f5f47abbfdd30012f80f, type: 2}
       propertyPath: m_Name
       value: SpawnMeny
-      objectReference: {fileID: 0}
-    - target: {fileID: 224761120213869654, guid: 128fdce0f9b9f5f47abbfdd30012f80f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -11.900024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 128fdce0f9b9f5f47abbfdd30012f80f, type: 2}
