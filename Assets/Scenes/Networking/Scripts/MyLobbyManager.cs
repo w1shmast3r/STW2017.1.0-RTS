@@ -10,7 +10,7 @@ public class MyLobbyManager : NetworkLobbyManager
 
 		if (colorFromLobbyPlayersGun != Color.black)
 		{
-			gamePlayer.GetComponent<PlyerScript>().serverRaceColor = colorFromLobbyPlayersGun;
+			gamePlayer.GetComponent<PlyerScript>().myColor = colorFromLobbyPlayersGun;
 		}
 
 		//disable LobbyPlayer object as we don't need it anymore on the scene

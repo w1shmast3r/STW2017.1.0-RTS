@@ -10,23 +10,21 @@ public class PlyerScript : NetworkBehaviour
     private Vector3 spawnPosition;
 	
 	[SyncVar]
-	public Color serverRaceColor = Color.black;
+	public Color myColor = Color.black;
 	
     void Start()
     {
 
-		if (serverRaceColor != Color.black)
+		if (myColor != Color.black)
 		{
-			if(serverRaceColor == Color.blue)
+			if(myColor == Color.blue)
 				myTeam = Base_NW.Team.Player1;
 			else
 				myTeam = Base_NW.Team.Player2;
-			Debug.Log("serverRaceColor = " + serverRaceColor);
+			Debug.Log("serverRaceColor = " + myColor);
 
 			//ChangeTankColor(serverRaceColor); - here we can implement change of the tank color
 		}
-
-        
 
         if (isLocalPlayer)
         {
@@ -42,48 +40,35 @@ public class PlyerScript : NetworkBehaviour
 
             LevelController.buildingMenu = GameObject.Find("BaseOptions");
             LevelController.buildingMenu.SetActive(false);
-            CmdSpawnBase(basePosition, myTeam);
+            CmdSpawnBase(basePosition, myTeam, myColor);
         }
     }
 
     [Command]
-    public void CmdSpawnBase(Vector3 position, Base_NW.Team playerTeam)
+    public void CmdSpawnBase(Vector3 position, Base_NW.Team thisTeam, Color thisColor)
     {
-		//teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
-
         var go = (GameObject)Instantiate(myBase, position, Quaternion.identity);
-        if (playerTeam == Base_NW.Team.Player2)
+        if (thisTeam == Base_NW.Team.Player2)
             go.transform.Rotate(Vector3.up, 180);
-        if (playerTeam == Base_NW.Team.Player1)
+        if (thisTeam == Base_NW.Team.Player1)
             go.transform.Rotate(Vector3.up, -50);
-		go.GetComponent<Base_NW>().team = myTeam;
-		go.GetComponent<Base_NW>().teamColor = serverRaceColor;
+		go.GetComponent<Base_NW>().team = thisTeam;
+		go.GetComponent<Base_NW>().teamColor = thisColor;
         NetworkServer.Spawn(go);
-
-        /*if (playerTeam == Base_NW.Team.Player1)
-            teamHandler.structurePlayer1.Add(go.GetComponent<NetworkIdentity>().netId.Value);
-        if (playerTeam == Base_NW.Team.Player2)
-            teamHandler.structurePlayer2.Add(go.GetComponent<NetworkIdentity>().netId.Value);*/
     }
 
 
     [Command]
-    void CmdSpawn(int i, Vector3 position, Base_NW.Team playerTeam)
+    void CmdSpawn(int i, Vector3 position, Base_NW.Team thisTeam, Color thisColor)
     {
-		teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
         var go = Instantiate(tanks[i], position, Quaternion.identity);
-		go.GetComponent<Base_NW>().team = myTeam;
-		go.GetComponent<Base_NW>().teamColor = serverRaceColor;
-        //var unit = go.GetComponent<Unit_NW>();
+		go.GetComponent<Base_NW>().team = thisTeam;
+		go.GetComponent<Base_NW>().teamColor = thisColor;
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
-		//if (playerTeam == Base_NW.Team.Player1)
-		//    teamHandler.unitPlayer1.Add(go.GetComponent<NetworkIdentity>().netId.Value);
-		//if (playerTeam == Base_NW.Team.Player2)
-		//    teamHandler.unitPlayer2.Add(go.GetComponent<NetworkIdentity>().netId.Value);
     }
 
     public void SpownTank(int i)
     {
-        CmdSpawn(i, LevelController.spawnPoint, myTeam);
+        CmdSpawn(i, LevelController.spawnPoint, myTeam, myColor);
     }
 }

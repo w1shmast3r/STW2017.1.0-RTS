@@ -9,7 +9,7 @@ public class Base_NW : NetworkBehaviour
 
     [Header("General")]
 	[SyncVar]
-    public Team team = Team.Player2;
+    public Team team;
 	[SyncVar]
 	public Color teamColor;
     public string className = "Unnamed";
@@ -85,7 +85,6 @@ public class Base_NW : NetworkBehaviour
         {
             case Team.Neutral:
                 gameObject.tag = "Neutral";
-                
                 break;
 
             case Team.Player1:
