@@ -8,7 +8,10 @@ public class Base_NW : NetworkBehaviour
     public enum Team { Player1, Player2, Neutral };
 
     [Header("General")]
+	[SyncVar]
     public Team team = Team.Player2;
+	[SyncVar]
+	public Color teamColor;
     public string className = "Unnamed";
     public string description = "Purpose of this unit/structure.";
 
@@ -44,8 +47,8 @@ public class Base_NW : NetworkBehaviour
 
     public void Initialize ()
     {
-        var netID = GetComponent<NetworkIdentity>().netId.Value;
-        team = TeamHandler_NW.teamHandler.GetMyTeam(netID);
+        //var netID = GetComponent<NetworkIdentity>().netId.Value;
+        //team = TeamHandler_NW.teamHandler.GetMyTeam(netID);
 
     	attackMask = 1 << LayerMask.NameToLayer ("Active");
 
@@ -76,25 +79,21 @@ public class Base_NW : NetworkBehaviour
 
         Color minimapColor = Color.clear;
 
-
+		mat.SetColor("_Color", teamColor);
+		minimapColor = teamColor;
         switch (team)
         {
             case Team.Neutral:
                 gameObject.tag = "Neutral";
-                mat.SetColor("_Color", TeamHandler_NW.teamHandler.colorNeutral);
-                minimapColor = TeamHandler_NW.teamHandler.colorNeutral;
+                
                 break;
 
             case Team.Player1:
                 gameObject.tag = "Player1";
-                mat.SetColor("_Color", TeamHandler_NW.teamHandler.colorPlayer1);
-                minimapColor = TeamHandler_NW.teamHandler.colorPlayer1;
                 break;
 
             case Team.Player2:
                 gameObject.tag = "Player2";
-                mat.SetColor("_Color", TeamHandler_NW.teamHandler.colorPlayer2);
-                minimapColor = TeamHandler_NW.teamHandler.colorPlayer2;
                 break;
 
             default:

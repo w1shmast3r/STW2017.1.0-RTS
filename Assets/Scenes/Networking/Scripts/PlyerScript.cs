@@ -49,32 +49,37 @@ public class PlyerScript : NetworkBehaviour
     [Command]
     public void CmdSpawnBase(Vector3 position, Base_NW.Team playerTeam)
     {
-		teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
+		//teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
 
         var go = (GameObject)Instantiate(myBase, position, Quaternion.identity);
         if (playerTeam == Base_NW.Team.Player2)
             go.transform.Rotate(Vector3.up, 180);
         if (playerTeam == Base_NW.Team.Player1)
             go.transform.Rotate(Vector3.up, -50);
+		go.GetComponent<Base_NW>().team = myTeam;
+		go.GetComponent<Base_NW>().teamColor = serverRaceColor;
+        NetworkServer.Spawn(go);
 
-        NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
-        if (playerTeam == Base_NW.Team.Player1)
+        /*if (playerTeam == Base_NW.Team.Player1)
             teamHandler.structurePlayer1.Add(go.GetComponent<NetworkIdentity>().netId.Value);
         if (playerTeam == Base_NW.Team.Player2)
-            teamHandler.structurePlayer2.Add(go.GetComponent<NetworkIdentity>().netId.Value);
+            teamHandler.structurePlayer2.Add(go.GetComponent<NetworkIdentity>().netId.Value);*/
     }
 
 
     [Command]
     void CmdSpawn(int i, Vector3 position, Base_NW.Team playerTeam)
     {
+		teamHandler = GameObject.Find("ObjectPooler").GetComponent<TeamHandler_NW>();
         var go = Instantiate(tanks[i], position, Quaternion.identity);
-        var unit = go.GetComponent<Unit_NW>();
+		go.GetComponent<Base_NW>().team = myTeam;
+		go.GetComponent<Base_NW>().teamColor = serverRaceColor;
+        //var unit = go.GetComponent<Unit_NW>();
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
-        if (playerTeam == Base_NW.Team.Player1)
-            teamHandler.unitPlayer1.Add(go.GetComponent<NetworkIdentity>().netId.Value);
-        if (playerTeam == Base_NW.Team.Player2)
-            teamHandler.unitPlayer2.Add(go.GetComponent<NetworkIdentity>().netId.Value);
+		//if (playerTeam == Base_NW.Team.Player1)
+		//    teamHandler.unitPlayer1.Add(go.GetComponent<NetworkIdentity>().netId.Value);
+		//if (playerTeam == Base_NW.Team.Player2)
+		//    teamHandler.unitPlayer2.Add(go.GetComponent<NetworkIdentity>().netId.Value);
     }
 
     public void SpownTank(int i)
