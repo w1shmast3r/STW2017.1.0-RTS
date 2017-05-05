@@ -10,21 +10,16 @@ public class PlyerScript : NetworkBehaviour
     private Vector3 spawnPosition;
 	
 	[SyncVar]
-	public Color myColor = Color.black;
+	public Color myColor = Color.blue;
 	
     void Start()
     {
-
 		if (myColor != Color.black)
 		{
 			if(myColor == Color.blue)
 				myTeam = Base_NW.Team.Player1;
 			else
 				myTeam = Base_NW.Team.Player2;
-			Debug.Log("serverRaceColor = " + myColor);
-
-
-			//ChangeTankColor(serverRaceColor); - here we can implement change of the tank color
 		}
 
         if (isLocalPlayer)

@@ -148,12 +148,12 @@ public class Base_NW : NetworkBehaviour
         if (GetComponent<Unit_NW>() == null)
         {
 
-
             LevelController.GameOver.SetActive(true);
             if (team == LevelController.myTeam)
-                LevelController.GameOver.GetComponentInChildren<UnityEngine.UI.Text>().text = "You win!";
+				LevelController.GameOver.GetComponentInChildren<UnityEngine.UI.Text>().text = "You loose!";
             else
-                LevelController.GameOver.GetComponentInChildren<UnityEngine.UI.Text>().text = "You loose!";
+				LevelController.GameOver.GetComponentInChildren<UnityEngine.UI.Text>().text = "You win!";
+                
         }
 
         if (hasAuthority)
