@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - SpawnPositionPlayer1
   - SpawnPositionPlayer2
+  - Undefined
+  - HealthBar
   layers:
   - Default
   - TransparentFX
