@@ -4,7 +4,6 @@ using UnityEngine.Networking;
 
 public class Base_NW : NetworkBehaviour 
 {
-    
     public enum Team { Player1, Player2, Neutral };
 
     [Header("General")]
@@ -46,10 +45,7 @@ public class Base_NW : NetworkBehaviour
     }
 
     public void Initialize ()
-    {
-        //var netID = GetComponent<NetworkIdentity>().netId.Value;
-        //team = TeamHandler_NW.teamHandler.GetMyTeam(netID);
-
+    {   
     	attackMask = 1 << LayerMask.NameToLayer ("Active");
 
     	if (team == LevelController.myTeam) {
@@ -149,12 +145,23 @@ public class Base_NW : NetworkBehaviour
         explosion.transform.position = transform.position + Vector3.up*0.5f;
         explosion.SetActive(true);
         LevelController.playerUnits.Remove(gameObject);
+        if (GetComponent<Unit_NW>() == null)
+        {
+
+
+            LevelController.GameOver.SetActive(true);
+            if (team == LevelController.myTeam)
+                LevelController.GameOver.GetComponentInChildren<UnityEngine.UI.Text>().text = "You win!";
+            else
+                LevelController.GameOver.GetComponentInChildren<UnityEngine.UI.Text>().text = "You loose!";
+        }
+
         if (hasAuthority)
-            CmdDestroyNW();
+            CmdDestroyNW(team);
     }
 
     [Command]
-    public void CmdDestroyNW()
+    public void CmdDestroyNW(Base_NW.Team winner)
     {
         Destroy(gameObject);
     }

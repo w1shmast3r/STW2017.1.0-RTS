@@ -581,9 +581,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 2
+  teamColor: {r: 0, g: 0, b: 0, a: 0}
   className: Unnamed
   description: Purpose of this unit/structure.
-  maxHealth: 100
+  maxHealth: 50
   armor: 2
   healthBar: {fileID: 114600533180091712}
   explosionType: 1
@@ -672,7 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b0e1a79fdeaa74b957a650173ca6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cube: {fileID: 0}
 --- !u!136 &136602175806733264
 CapsuleCollider:
   m_ObjectHideFlags: 1

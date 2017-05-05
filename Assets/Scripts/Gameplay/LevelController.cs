@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public class LevelController : MonoBehaviour {
 
     public static List<GameObject> playerUnits;
+    public static GameObject GameOver;
+
+
 
     public static Base_NW.Team myTeam;
     public static GameObject myBase;
@@ -35,6 +38,11 @@ public class LevelController : MonoBehaviour {
         foreach (var obj in objects) {
             RegisterUnit(obj.gameObject);
         }
+
+
+        GameOver = GameObject.Find("GameOver");
+        if (GameOver != null)
+            GameOver.SetActive(false);
     }
 
     public void SpawUnit(int i)
