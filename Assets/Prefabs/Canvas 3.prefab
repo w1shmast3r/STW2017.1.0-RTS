@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 222992167333500852}
   - component: {fileID: 114428453098495640}
   - component: {fileID: 114372361519034648}
+  - component: {fileID: 114363533485240846}
   m_Layer: 5
   m_Name: 0
   m_TagString: Untagged
@@ -162,6 +163,7 @@ GameObject:
   - component: {fileID: 222626105883449944}
   - component: {fileID: 114889352953543346}
   - component: {fileID: 114912899088385636}
+  - component: {fileID: 114150615774395288}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -197,6 +199,7 @@ GameObject:
   - component: {fileID: 222430204025286122}
   - component: {fileID: 114507773175455240}
   - component: {fileID: 114769501295156162}
+  - component: {fileID: 114336306356476008}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -249,6 +252,7 @@ GameObject:
   - component: {fileID: 222953707170620202}
   - component: {fileID: 114823492846848310}
   - component: {fileID: 114927794731487526}
+  - component: {fileID: 114325313339757374}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -354,6 +358,7 @@ GameObject:
   - component: {fileID: 222728469631490142}
   - component: {fileID: 114924673442185736}
   - component: {fileID: 114133897311362240}
+  - component: {fileID: 114811890999185436}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -556,8 +561,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SpawUnit
+      - m_Target: {fileID: 114811890999185436}
+        m_MethodName: ConstructVehicle
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -569,6 +574,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114150615774395288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367541673441524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61e4b43ed7c45beaf5ef2f7314eaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 0}
+  timeToBuildVehicle: 5
 --- !u!114 &114160809349669876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,6 +670,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114325313339757374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1665500558275526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61e4b43ed7c45beaf5ef2f7314eaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 0}
+  timeToBuildVehicle: 5
 --- !u!114 &114332586629462982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -679,6 +710,32 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114336306356476008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529848457165772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61e4b43ed7c45beaf5ef2f7314eaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 0}
+  timeToBuildVehicle: 5
+--- !u!114 &114363533485240846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350649845362314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61e4b43ed7c45beaf5ef2f7314eaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 0}
+  timeToBuildVehicle: 5
 --- !u!114 &114372361519034648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -718,8 +775,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SpawUnit
+      - m_Target: {fileID: 114363533485240846}
+        m_MethodName: ConstructVehicle
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1053,8 +1110,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SpawUnit
+      - m_Target: {fileID: 114336306356476008}
+        m_MethodName: ConstructVehicle
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1066,6 +1123,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114811890999185436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915865601156184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61e4b43ed7c45beaf5ef2f7314eaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelController: {fileID: 0}
+  timeToBuildVehicle: 5
 --- !u!114 &114823492846848310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1240,8 +1310,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SpawUnit
+      - m_Target: {fileID: 114150615774395288}
+        m_MethodName: ConstructVehicle
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1319,8 +1389,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SpawUnit
+      - m_Target: {fileID: 114325313339757374}
+        m_MethodName: ConstructVehicle
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
